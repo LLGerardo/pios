@@ -1,5 +1,6 @@
-//#include <stdlib.h>
-//#include <stdio.h>
+#define _SIZE_T 
+#include <stdlib.h>
+#include <stdio.h>
 #include "rprintf.h"
 #include "serial.c"
 
