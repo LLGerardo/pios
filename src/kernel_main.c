@@ -1,3 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include "rprintf.h"
+#include "serial.c"
 
 extern char __bss_start, __bss_end; //initialize variables globally
 
@@ -10,8 +14,14 @@ void clear_bss(void) {
     }
 }
 
+int getEL(void){
+	int el;
+	asm ("mrs %0, CurrentEL" : "=r" (el));
+	return el >> 2;
+}
+
 void kernel_main() {
     clear_bss(); // clear bss before starting kernel
-    while(1){
-    }
+
+	esp_printf(putc, "Current execution level is: %d\n", getEL());
 }
