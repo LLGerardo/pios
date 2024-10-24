@@ -17,6 +17,7 @@ OBJS = \
 	kernel_main.o \
 	list.o \ 
 	mmusetup.o \
+	page.o \
 
 
 
