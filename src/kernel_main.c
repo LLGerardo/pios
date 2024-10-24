@@ -24,4 +24,6 @@ void kernel_main() {
 	clear_bss(); // clear bss before starting kernel
 
 	esp_printf(putc, "Current execution level is: %d\r\n", getEL());
+
+	mmu_on();
 }
