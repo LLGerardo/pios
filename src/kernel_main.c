@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "rprintf.h"
 #include "serial.c"
+#include "sd.c"
 
 extern char __bss_start, __bss_end; //initialize variables globally
 
@@ -26,4 +27,10 @@ void kernel_main() {
 	esp_printf(putc, "Current execution level is: %d\r\n", getEL());
 
 	mmu_on();
+
+	fatInit(); //Initializes the FAT filesystem driver by reading the superblock (aka boot sector) and FAT into memory.
+
+	fatOpen(); //Opens a file in a FAT filesystem on disk
+
+	fatRead(); //Reads data from a file into a buffer
 }
