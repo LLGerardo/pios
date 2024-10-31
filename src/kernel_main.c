@@ -3,6 +3,8 @@
 #include "rprintf.h"
 #include "serial.c"
 #include "sd.c"
+#include "fat.c"
+
 
 extern char __bss_start, __bss_end; //initialize variables globally
 
